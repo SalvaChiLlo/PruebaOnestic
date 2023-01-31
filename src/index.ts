@@ -11,6 +11,23 @@ const args = arg({
   '--orders': String,
 });
 
+async function main() {
+  try {
+    checkArgs();
+
+    const csvCustomers = loadFile(args['--customers']);
+    const csvOrders = loadFile(args['--orders']);
+    const csvProducts = loadFile(args['--products']);
+
+    const { orderPrices, productCustomers, customersRanking } = await generateReports({ csvCustomers, csvOrders, csvProducts });
+    console.log({ orderPrices, productCustomers, customersRanking });
+  } catch (error: any) {
+    console.error(error.message);
+    process.exit(1);
+  }
+}
+main();
+
 function showHelpMessage() {
   console.log(
     `
@@ -37,19 +54,3 @@ function loadFile(path: string): string {
 
   throw new Error(`File [${path}] does not exist`);
 }
-
-function main() {
-  try {
-    checkArgs();
-
-    const customers = loadFile(args['--customers']);
-    const orders = loadFile(args['--orders']);
-    const products = loadFile(args['--products']);
-
-    generateReports(customers, orders, products);
-  } catch (error: any) {
-    console.error(error.message);
-    process.exit(1);
-  }
-}
-main();

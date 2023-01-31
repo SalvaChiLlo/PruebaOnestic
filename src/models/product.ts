@@ -30,7 +30,7 @@ export default class Product {
     this.name = name;
   }
 
-  public getCost() {
+  public getCost(): number {
     return this.cost;
   }
 
