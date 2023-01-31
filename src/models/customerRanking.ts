@@ -27,16 +27,36 @@ export default class CustomerRanking {
     return this.id;
   }
 
+  public setId(id: number) {
+    this.id = id;
+  }
+
   public getName() {
     return this.name;
+  }
+
+  public setName(name: string) {
+    this.name = name;
   }
 
   public getLastname() {
     return this.lastname;
   }
 
+  public setLastname(lastname: string) {
+    this.lastname = lastname;
+  }
+
   public getTotal() {
     return this.total;
+  }
+
+  public setTotal(total: number) {
+    this.total = total;
+  }
+
+  public incrementTotal(amount: number) {
+    this.total += amount;
   }
 
   public toString() {

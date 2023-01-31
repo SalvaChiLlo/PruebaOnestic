@@ -15,11 +15,14 @@ export default class ProductCustomers {
   }
 
   public addCustomer(customerId: number) {
-    if (!this.customerExists(customerId)) { this.customerIds.push(customerId); }
+    if (!this.customerExists(customerId)) {
+      this.customerIds.push(customerId);
+      this.customerIds.sort();
+    }
   }
 
   private customerExists(customerId: number): boolean {
-    return !!this.customerIds.find((customer) => customer === customerId);
+    return this.customerIds.find((customer) => customer === customerId) !== undefined;
   }
 
   public getId() {
@@ -30,7 +33,7 @@ export default class ProductCustomers {
     this.id = id;
   }
 
-  public getCustomerIds() {
+  public getCustomerIds(): number[] {
     return this.customerIds;
   }
 

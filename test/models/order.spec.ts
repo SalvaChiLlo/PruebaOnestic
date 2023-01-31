@@ -6,7 +6,7 @@ describe('Order tests', () => {
   it('Test Order constructor', () => {
     const { testOrder, id, customer } = createTestOrder();
     expect(testOrder.getId()).to.be.eq(id);
-    expect(testOrder.getCustomer()).to.be.eq(customer);
+    expect(testOrder.getCustomerId()).to.be.eq(customer);
     expect(testOrder.getProducts()[0]).to.be.eq(1);
     expect(testOrder.getProducts()[1]).to.be.eq(2);
     expect(testOrder.getProducts()[2]).to.be.eq(3);

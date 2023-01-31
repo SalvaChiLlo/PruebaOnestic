@@ -10,9 +10,12 @@ export default class OrderPrice {
   /** Total del pedido en euros */
   private total: number;
 
-  constructor(id: number, total: number) {
+  private customerId: number;
+
+  constructor(id: number, total: number, customerId: number) {
     this.id = id;
     this.total = total;
+    this.customerId = customerId;
   }
 
   public getId() {
@@ -29,6 +32,14 @@ export default class OrderPrice {
 
   public setTotal(total: number) {
     this.total = total;
+  }
+
+  public getCustomerId() {
+    return this.customerId;
+  }
+
+  public setCustomerId(customerId: number) {
+    this.customerId = customerId;
   }
 
   public toString() {

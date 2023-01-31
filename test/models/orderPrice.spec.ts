@@ -18,6 +18,6 @@ describe('OrderPrice tests', () => {
 function createOrderPrice() {
   const id = 1;
   const total = 9999.99;
-  const testOrderPrice = new OrderPrice(id, total);
+  const testOrderPrice = new OrderPrice(id, total, -1);
   return { testOrderPrice, id, total };
 }

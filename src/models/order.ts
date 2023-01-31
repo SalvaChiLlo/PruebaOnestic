@@ -26,7 +26,7 @@ export default class Order {
   private parseProducts(unformattedProductList: string) {
     const regex = /^\s*(\d+\s*)+$/;
     if (!regex.test(unformattedProductList)) { throw new Error(`El formato de la lista de productos de la orden [${this.id}] es incorrecto`); }
-    this.products = unformattedProductList.split(CSV_LIST_SEPARATOR).map((prod) => +prod);
+    this.products = unformattedProductList.split(CSV_LIST_SEPARATOR).map((prod) => parseInt(prod, 10));
   }
 
   public getId() {
@@ -37,7 +37,7 @@ export default class Order {
     this.id = id;
   }
 
-  public getCustomer() {
+  public getCustomerId() {
     return this.customer;
   }
 
