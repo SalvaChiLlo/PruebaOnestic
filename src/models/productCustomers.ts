@@ -17,7 +17,7 @@ export default class ProductCustomers {
   public addCustomer(customerId: number) {
     if (!this.customerExists(customerId)) {
       this.customerIds.push(customerId);
-      this.customerIds.sort();
+      this.customerIds = this.customerIds.sort((a, b) => a - b);
     }
   }
 
