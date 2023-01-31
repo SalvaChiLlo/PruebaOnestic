@@ -5,8 +5,8 @@ import Product from '../models/product';
 export default function generateOrderPriceReport(
   orders: { [key: number]: Order },
   products: { [key: number]: Product },
-): OrderPrice[] {
-  const result: OrderPrice[] = [];
+) {
+  const orderPrice: OrderPrice[] = [];
   Object.keys(orders).forEach((orderId) => {
     const order = orders[+orderId];
     let total = 0;
@@ -25,9 +25,9 @@ export default function generateOrderPriceReport(
         total,
       );
 
-      result.push(new OrderPrice(+orderId, total));
+      orderPrice.push(new OrderPrice(+orderId, total, order.getCustomerId()));
     }
   });
 
-  return result;
+  return orderPrice.sort((a, b) => a.getId() - b.getId());
 }
