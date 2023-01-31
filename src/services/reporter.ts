@@ -24,9 +24,17 @@ export default async function generateReports(data: IData) {
   checkCsvIsCorrect(data);
   /** Se convierten los datos de los archivos CSV en objetos de las clases definidas */
   await parseData(data);
+
+  /**
+   * A pesar de que se podrían generar todos los reportes en un mismo recorrido de todas las órdenes,
+   * se ha optado por separar la generación de cada uno de los reportes para así hacer que los algoritmos
+   * sean más sencillos, haciendo esto, que el código sea mucho más legible y en caso de realizar algún
+   * tipo de mantenimiento, este resulte mucho más sencillo.
+   * En caso de ser necesario un mayor rendimiento se podría realizar la modificación comentada.
+   */
   const orderPrices: OrderPrice[] = generateOrderPriceReport(ordersIndex, productsIndex);
-  const productCustomers: ProductCustomers[] = generateProductCustomersReport(customersIndex, ordersIndex);
-  const customersRanking: CustomerRanking[] = generateCustomerRankingReport(customersIndex, ordersIndex, productsIndex);
+  const productCustomers: ProductCustomers[] = generateProductCustomersReport(ordersIndex);
+  const customersRanking: CustomerRanking[] = generateCustomerRankingReport(orderPrices, customersIndex);
 
   return { orderPrices, productCustomers, customersRanking };
 }
