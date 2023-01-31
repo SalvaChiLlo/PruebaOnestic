@@ -1,19 +1,19 @@
-import process from 'process';
+import { CSV_LIST_SEPARATOR } from '../constants/constants';
 
 export default class Order {
   /** ID numérico que identifica el pedido */
-  id: number;
+  private id: number;
 
   /** ID del cliente que hizo el pedido */
-  customer: number;
+  private customer: number;
 
   /** Listado de ID’s de productos que ha comprado un cliente en el pedido. */
-  products: number[];
+  private products: number[];
 
   constructor(order: IOrder) {
     this.id = order.id;
     this.customer = order.customer;
-    this.parseOrder(order.products);
+    this.parseProducts(order.products);
   }
 
   /**
@@ -23,17 +23,38 @@ export default class Order {
    * ->
    * products: [0, 5, 0, 4, 5, 3, 2, 1, 1]
   */
-  public parseOrder(unformattedProductList: string) {
-    try {
-      this.products = unformattedProductList.split(' ').map((prod) => +prod);
-    } catch (error: any) {
-      console.error(`El formato de la lista de productos del producto [${this.id}] es incorrecto`);
-      process.exit(1);
-    }
+  private parseProducts(unformattedProductList: string) {
+    const regex = /^\s*(\d+\s*)+$/;
+    if (!regex.test(unformattedProductList)) { throw new Error(`El formato de la lista de productos de la orden [${this.id}] es incorrecto`); }
+    this.products = unformattedProductList.split(CSV_LIST_SEPARATOR).map((prod) => +prod);
+  }
+
+  public getId() {
+    return this.id;
+  }
+
+  public setId(id: number) {
+    this.id = id;
+  }
+
+  public getCustomer() {
+    return this.customer;
+  }
+
+  public setCustomer(customer: number) {
+    this.customer = customer;
+  }
+
+  public getProducts() {
+    return this.products;
+  }
+
+  public setProducts(products: number[]) {
+    this.products = products;
   }
 }
 
-export interface IOrder {
+interface IOrder {
   id: number;
   customer: number;
   products: string;
