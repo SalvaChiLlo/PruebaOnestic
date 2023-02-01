@@ -1,3 +1,7 @@
+order_prices.csv
+product_customers.csv
+customer_ranking.csv
+
 # Logs
 logs
 *.log

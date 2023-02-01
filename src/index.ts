@@ -1,10 +1,11 @@
 import arg from 'arg';
-import { existsSync, readFileSync, writeFileSync } from 'fs';
+import { existsSync, readFileSync } from 'fs';
 import process from 'process';
 import generateReports from './services/reporter';
 import {
   CustomersRankingHeader, OrderPriceHeader, ProductCustomersHeader,
 } from './constants/constants';
+import { writeCSVFile } from './utils/utils';
 
 const args = arg({
   // Types
@@ -61,13 +62,6 @@ function loadFile(path: string): string {
   throw new Error(`File [${path}] does not exist`);
 }
 
-function writeCSVFile(items: any[], header: string, filename: string) {
-  let buffer = `${header}\n`;
-  items.forEach((item) => { buffer += `${item}\n`; });
-
-  writeFileSync(`./${filename}`, buffer);
-}
-
-async function launchProcess(csvCustomers: string, csvOrders: string, csvProducts: string) {
+export default async function launchProcess(csvCustomers: string, csvOrders: string, csvProducts: string) {
   return generateReports({ csvCustomers, csvOrders, csvProducts });
 }
