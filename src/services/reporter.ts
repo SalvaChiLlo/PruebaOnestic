@@ -68,6 +68,7 @@ function indexProducts(products: Product[]) {
     productsIndex[item.getId()] = item;
   });
 }
+
 function checkCsvIsCorrect(data: IData) {
   if (!data.csvCustomers.startsWith(CustomerHeader)) {
     throw new Error(`The content of the Customers file does not follow the expected format -- {${CustomerHeader}}`);

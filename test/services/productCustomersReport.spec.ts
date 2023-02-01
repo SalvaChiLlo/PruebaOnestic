@@ -12,7 +12,6 @@ describe('ProductCustomers tests', () => {
 
   it('Generate correct report', async () => {
     const productCustomers = generateProductCustomersReport(orders);
-    // console.log(productCustomers);
 
     assertProductCustomers(productCustomers);
   });
@@ -20,8 +19,6 @@ describe('ProductCustomers tests', () => {
 
 function assertProductCustomers(productCustomers: ProductCustomers[]) {
   expect(productCustomers.length).to.be.eq(2);
-
-  console.log(productCustomers);
 
   expect(productCustomers[0].getId()).to.be.eq(0);
   expect(productCustomers[0].getCustomerIds().length).to.be.eq(2);

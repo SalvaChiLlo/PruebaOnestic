@@ -13,8 +13,6 @@ reportingRoutes.post('/generateReports', multer().any(), async (req, res) => {
     const csvOrders = files.find((file) => file.fieldname === 'orders').buffer.toString();
     const csvProducts = files.find((file) => file.fieldname === 'products').buffer.toString();
 
-    console.log({ csvCustomers, csvOrders, csvProducts });
-
     const { orderPrices, productCustomers, customersRanking } = await generateReports({ csvCustomers, csvOrders, csvProducts });
 
     res.status(200);
