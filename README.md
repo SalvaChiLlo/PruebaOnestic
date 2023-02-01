@@ -164,9 +164,9 @@ npm run test
 
 ## Enlaces de interés / Bibliografía
 
-[Multer](http://expressjs.com/en/resources/middleware/multer.html)
-[Csvtojson](https://www.npmjs.com/package/csvtojson)
-[Ansi-colors](https://www.npmjs.com/package/ansi-colors)
-[Eslint](https://www.npmjs.com/package/eslint)
-[Dynamically set angular env variables in docker](https://nkpremices.com/dynamically-set-angular-env-variables-in-docker/)
-[Configure NGINX for Angular - Docker](https://dev.to/oneofthedevs/docker-angular-nginx-37e4)
+* [Multer](http://expressjs.com/en/resources/middleware/multer.html)
+* [Csvtojson](https://www.npmjs.com/package/csvtojson)
+* [Ansi-colors](https://www.npmjs.com/package/ansi-colors)
+* [Eslint](https://www.npmjs.com/package/eslint)
+* [Dynamically set angular env variables in docker](https://nkpremices.com/dynamically-set-angular-env-variables-in-docker/)
+* [Configure NGINX for Angular - Docker](https://dev.to/oneofthedevs/docker-angular-nginx-37e4)
