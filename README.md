@@ -23,13 +23,13 @@ Dados los archivos de entrada _customers.csv, orders.csv y products.csv_, genera
 
 Los reportes que se generan son los siguientes:
 
-- _order_prices.csv_ -> Calcula el coste total de cada uno de los pedido.
+- _order_prices.csv_ -> Calcula el coste total de cada uno de los pedidos.
 - _product_customers.csv_ -> Reporte que relaciona cada producto con una lista de Consumers que han adquirido el producto.
 - _customer_ranking.csv_ -> Ordena los clientes según el total de los pedidos realizados.
 
 ## Puesta en marcha del proyecto
 
-Para poder iniciar el proyecto, hay que clonar el repositorio y, posteriormente, instalar las depedencias necesarias:
+Para poder iniciar el proyecto, hay que clonar el repositorio y, posteriormente, instalar las dependencias necesarias:
 
 ```
 git clone https://github.com/SalvaChiLlo/ReportingBackend.git
@@ -63,7 +63,7 @@ $ npm run startCLI -- --orders ./orders.csv --products ./products.csv --customer
 ### Puesta en marcha del servidor
 
 Existen dos formas de ejecutar el servidor, en local o en Docker.
-Para lanzar el servidor en local, simplemente ejecuta el siguiente comando, el cual hará que el servidor empieze a responder peticiones en el puerto indicado en la configuración (archivo _.env_, por defecto _8080_):
+Para lanzar el servidor en local, simplemente ejecuta el siguiente comando, el cual hará que el servidor empiece a responder peticiones en el puerto indicado en la configuración (archivo _.env_, por defecto _8080_):
 
 ```
 npm run startSERVER
@@ -111,7 +111,7 @@ status: 200
 }
 ```
 
-En caso de que se producta algún error durante la generación de reportes:
+En caso de que se produzca algún error durante la generación de reportes:
 
 ```
 status: 503
@@ -122,7 +122,7 @@ status: 503
 
 ## Detalles de implementación
 
-Para facilitar la implementación de la solución se ha optado por utilizar las siguientes dependencias, las cuales han sido elegidas tras un perido de investigación, tratando de elegir siempre paquetes que tengan un buen equipo detrás y que sean de gran uso entre la comunidad:
+Para facilitar la implementación de la solución se ha optado por utilizar las siguientes dependencias, las cuales han sido elegidas tras un periodo de investigación, tratando de elegir siempre paquetes que tengan un buen equipo detrás y que sean de gran uso entre la comunidad:
 
 - [Arg](https://npmjs.com/package/arg)
   - Permite gestionar de forma sencilla los argumentos que se pasan al programa por línea de comandos.
@@ -144,7 +144,7 @@ Había dos opciones principalmente:
 - Hacer un algoritmo que fuese más grande y complejo, pero más eficiente, es decir, en el que se realizan menos iteraciones.
 - Hacer diferentes algoritmos más pequeños y simples para cada reporte, pero que permiten una mejor legibilidad y mantenimiento futuro, aunque en un cómputo total son algo menos eficientes que la opción anterior.
 
-Finalmente, se decició llevar a cabo la segunda de las opciones en favor de una mejora mantenibilidad. De esta forma, en un futuro, si se desea, se pueden añadir nuevas funcionalidades en alguno de los algoritmos sin que afecte a los otros. O por ejemplo, se podrían genera reportes de forma independiente.
+Finalmente, se decidió llevar a cabo la segunda de las opciones en favor de una mejora mantenibilidad. De esta forma, en un futuro, si se desea, se pueden añadir nuevas funcionalidades en alguno de los algoritmos sin que afecte a los otros. O por ejemplo, se podrían generar reportes de forma independiente.
 
 En cuanto al rendimiento, con el fin de buscar una mejora del mismo, se opta por indexar los diferentes datos obtenidos a partir de los _CSV_ con la finalidad de reducir a tiempo constante _O(1)_ la búsqueda de datos en los mismos.
 
@@ -154,7 +154,7 @@ Con el fin de validar el correcto funcionamiento y evitar introducir defectos en
 
 Para ello, se ha tratado de seguir al máximo posible la filosofía TDD.
 
-Los tests, se han realizado con Mocha, framework de testing para Javascript, y Chai, libreria de aserciones para Node.
+Los tests, se han realizado con Mocha, framework de testing para Javascript, y Chai, librería de aserciones para Node.
 
 Para lanzar los tests, ejecuta el siguiente comando:
 
