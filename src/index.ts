@@ -1,3 +1,4 @@
+import c from 'ansi-colors'
 import arg from 'arg';
 import { existsSync, readFileSync } from 'fs';
 import process from 'process';
@@ -27,6 +28,11 @@ async function main() {
     writeCSVFile(orderPrices, OrderPriceHeader, 'order_prices.csv');
     writeCSVFile(productCustomers, ProductCustomersHeader, 'product_customers.csv');
     writeCSVFile(customersRanking, CustomersRankingHeader, 'customer_ranking.csv');
+    console.log(c.green(`
+--------------------
+--Reportes creados--
+--------------------`));
+    
   } catch (error: any) {
     console.error(error.message);
     process.exit(1);
