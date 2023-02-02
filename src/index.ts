@@ -1,4 +1,4 @@
-import c from 'ansi-colors'
+import c from 'ansi-colors';
 import arg from 'arg';
 import { existsSync, readFileSync } from 'fs';
 import process from 'process';
@@ -32,7 +32,6 @@ async function main() {
 --------------------
 --Reportes creados--
 --------------------`));
-    
   } catch (error: any) {
     console.error(error.message);
     process.exit(1);
