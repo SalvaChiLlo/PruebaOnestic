@@ -5,6 +5,8 @@
 - [Uso de la Herramienta CLI](#uso-de-la-herramienta-cli)
 - [Uso de la API REST](#uso-de-la-api-rest)
   - [Puesta en marcha del servidor](#puesta-en-marcha-del-servidor)
+    - [Local](#local)
+    - [Docker](#docker)
   - [Rutas](#rutas)
     - [/api](#api)
       - [POST /generateReports](#post-generatereports)
@@ -66,6 +68,8 @@ $ npm run startCLI -- --orders ./orders.csv --products ./products.csv --customer
 
 ### Puesta en marcha del servidor
 
+#### Local
+
 Existen dos formas de ejecutar el servidor, **en local o en Docker**.
 
 Para lanzar el servidor **en local**, simplemente **ejecuta el siguiente comando**, el cual hará que el servidor empiece a responder peticiones en el puerto indicado en la configuración (archivo _.env_, por defecto _8080_):
@@ -73,6 +77,8 @@ Para lanzar el servidor **en local**, simplemente **ejecuta el siguiente comando
 ```
 npm run startSERVER
 ```
+
+#### Docker
 
 Si por el contrario, **no quieres instalar ninguna dependencia**, puedes ejecutar el servicio en **Docker**. Para ello, descarga el fichero **[docker-compose.yml](https://github.com/SalvaChiLlo/ReportingBackend/blob/main/docker-compose.yml)**, y en el mismo directorio donde se encuentra el fichero, ejecuta:
 
@@ -149,13 +155,13 @@ Había dos opciones principalmente:
 - Hacer un **algoritmo que fuese más grande y complejo**, pero más eficiente, es decir, en el que se realizan menos iteraciones.
 - Hacer diferentes **algoritmos más pequeños y simples para cada reporte**, pero que permiten una **mejor legibilidad y mantenimiento** futuro, aunque en un cómputo total son algo menos eficientes que la opción anterior.
 
-Finalmente, **se decidió llevar a cabo la segunda de las opciones en favor de una mejora mantenibilidad**. De esta forma, en un futuro, si se desea, se pueden añadir nuevas funcionalidades en alguno de los algoritmos __sin que afecte a los otros. O por ejemplo, se podrían generar reportes de forma independiente.__
+Finalmente, **se decidió llevar a cabo la segunda de las opciones en favor de una mejora mantenibilidad**. De esta forma, en un futuro, si se desea, se pueden añadir nuevas funcionalidades en alguno de los algoritmos **sin que afecte a los otros. O por ejemplo, se podrían generar reportes de forma independiente.**
 
-En cuanto al __rendimiento__, con el fin de buscar una mejora del mismo, se opta por __indexar los datos__ obtenidos a partir de los _CSV_ con la finalidad de __reducir a tiempo__ constante _O(1)_ la __búsqueda de datos__ en los mismos.
+En cuanto al **rendimiento**, con el fin de buscar una mejora del mismo, se opta por **indexar los datos** obtenidos a partir de los _CSV_ con la finalidad de **reducir a tiempo** constante _O(1)_ la **búsqueda de datos** en los mismos.
 
 ## Pruebas / Testing
 
-Con el fin de __validar el correcto funcionamiento__ y __evitar__ introducir __defectos__ en la aplicación durante el desarrollo, se ha optado por __realizar pruebas unitarias__ sobre la aplicación, tratando de tener una __cobertura de código__ lo más __alta__ posible para __evitar comportamientos no deseados__ en la aplicación.
+Con el fin de **validar el correcto funcionamiento** y **evitar** introducir **defectos** en la aplicación durante el desarrollo, se ha optado por **realizar pruebas unitarias** sobre la aplicación, tratando de tener una **cobertura de código** lo más **alta** posible para **evitar comportamientos no deseados** en la aplicación.
 
 Para ello, se ha tratado de seguir al máximo posible la filosofía TDD.
 
